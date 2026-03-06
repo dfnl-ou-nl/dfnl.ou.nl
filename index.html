@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DFNL | Digital Forensic seminar NL</title>
+<style>
+        :root {
+            --brand-dark-blue: #152F4A;  /* PMS 7463 */
+            --brand-light-blue: #ACC5E0; /* PMS 543 */
+            --brand-accent-blue: #567BC6;/* PMS 660 */
+            --white: #ffffff;
+            --text-main: #333333;
+            --bg-light: #f4f7fa;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.7;
+            color: var(--text-main);
+            background-color: var(--bg-light);
+        }
+
+        /* Header & Hero */
+        header {
+            background-color: var(--white);
+            padding: 2rem 10%;
+            border-bottom: 4px solid var(--brand-dark-blue);
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            gap: 2.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .dfnl-logo {
+            width: auto;
+            height: 130px;
+            display: block;
+        }
+
+        .ou-logo {
+            width: auto;
+            height: 70px;
+            display: block;
+        }
+
+        .title-group h1 {
+            font-size: 2.4rem;
+            color: var(--brand-dark-blue);
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--brand-accent-blue);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 0.2rem;
+        }
+
+        /* Two-Column Layout */
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3.5rem;
+            max-width: 1200px;
+            margin: 3.5rem auto;
+            padding: 0 10%;
+        }
+
+        h2 {
+            font-size: 1.6rem;
+            margin-bottom: 1.5rem;
+            color: var(--brand-dark-blue);
+            border-bottom: 2px solid var(--brand-light-blue);
+            padding-bottom: 0.5rem;
+        }
+
+        section {
+            margin-bottom: 3rem;
+        }
+
+        p {
+            margin-bottom: 1.2rem;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        ul li {
+            margin-bottom: 0.8rem;
+            padding-left: 1.8rem;
+            position: relative;
+        }
+
+        /* Custom Bullet: Blue Square */
+        ul li::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0.6rem;
+            width: 8px;
+            height: 8px;
+            background-color: var(--brand-accent-blue);
+        }
+
+        /* Content Cards */
+        .card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 8px;
+            border-left: 6px solid var(--brand-dark-blue);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            margin-top: 1.5rem;
+        }
+
+        .card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            color: var(--brand-accent-blue);
+            text-transform: uppercase;
+        }
+
+        .badge {
+            background: var(--brand-dark-blue);
+            color: var(--white);
+            padding: 0.6rem;
+            border-radius: 4px;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 0.6rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 4rem 10% 2.5rem;
+            background: var(--brand-dark-blue);
+            color: var(--brand-light-blue);
+            font-size: 0.9rem;
+        }
+
+        footer strong {
+            color: var(--white);
+        }
+
+        @media (max-width: 900px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-content">
+            <img src="DFNL-bottom-logo.svg" alt="DFNL Logo" class="dfnl-logo">
+            <div class="title-group">
+                <h1>Digital Forensic seminar NL</h1>
+                <div class="subtitle">Understanding Theory to Master Practice</div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="column">
+            <section>
+                <div class="badge">Next Session: coming soon</div>
+            </section>
+            <section>
+                <h2>Mission & Vision</h2>
+                <p>The DFNL seminar serves as a vital nexus for the Dutch academic community, bringing together researchers to explore the latest advancements in digital forensics. 
+				By bridging the gap between theory and practice, we facilitate a unique exchange across multiple disciplines.</p>
+                <ul>
+                    <li>Legal Studies & Regulatory Context</li>
+                    <li>Applied & Theoretical Computer Science</li>
+                    <li>Artificial Intelligence & Machine Learning</li>
+                </ul>
+            </section>
+            <section>
+                <h2>Research Scope</h2>
+                <p>We explore a diverse range of topics essential to modern digital investigations:</p>
+                <ul>
+                    <li><strong>Technical Methods:</strong> Data acquisition, mining, and AI implementation.</li>
+                    <li><strong>Legal & Ethics:</strong> Privacy, data admissibility, and authenticity.</li>
+                    <li><strong>Foundations:</strong> Theoretical models and conceptual frameworks.</li>
+                </ul>
+            </section>
+        </div>
+
+        <div class="column">
+            <section>
+                <h2>Seminar Format</h2>
+                <p>Our online sessions are hosted every four weeks via Microsoft Teams, provided by the <strong>Open Universiteit</strong>. 
+				Each 30-minute block is optimized for impact:</p>
+                <ul>
+                    <li><strong>20 Minutes:</strong> Expert presentation on novel or published research.</li>
+                    <li><strong>10 Minutes:</strong> Collaborative Q&A and networking.</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>Our Community</h2>
+                <p>This initiative is primarily tailored for PhD candidates and early-career academics at Dutch research institutions. 
+				We foster cross-institutional collaboration to strengthen the national forensic landscape.</p>
+                
+                <div class="organizer-card">
+                    <h3>Organizing Committee</h3>
+                    <p><strong>Harm van Beek</strong><br>Open Universiteit / Netherlands Forensic Institute</p>
+                    <p><strong>Lorenz Hornung</strong><br>Open Universiteit</p>
+                    <p><strong>Timo Meconi</strong><br>Rijksuniversiteit Groningen</p>
+                    <p style="margin-top: 1rem; font-style: italic;">Contact: <strong>dfnl@ou.nl</strong></p>
+                </div>
+				<img src="OU-logo.svg" alt="Open Universiteit Logo" class="ou-logo">
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Digital Forensic seminar NL, provided by Open Universiteit</p>
+    </footer>
+
+</body>
+</html>
