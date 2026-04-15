@@ -1,9 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="nl-en">
 <head>
     <meta charset="UTF-8">
-	<link rel="icon" type="image/svg+xml" href="favicon.svg">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="DFNL – Dutch Digital Forensic Doctorate Seminar. A biweekly online seminar bridging theory and practice in digital forensics across Dutch research institutions.">
+    <meta property="og:title" content="DFNL | Dutch Digital Forensic Doctorate Seminar">
+    <meta property="og:description" content="Biweekly online seminar for PhD candidates and early-career academics in Dutch digital forensics.">
     <title>DFNL | Dutch Digital Forensic Doctorate Seminar</title>
 <style>
         :root {
@@ -48,6 +51,7 @@
             width: auto;
             height: 130px;
             display: block;
+            overflow: visible;
         }
 
         .ou-logo {
@@ -122,28 +126,283 @@
         /* Content Cards */
         .card {
             background: var(--white);
-            padding: 2rem;
+            padding: 1rem 1.2rem;
             border-radius: 8px;
             border-left: 6px solid var(--brand-dark-blue);
             box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-            margin-top: 1.5rem;
+            margin-top: 1rem;
         }
 
         .card h3 {
-            font-size: 1.1rem;
-            margin-bottom: 1rem;
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
             color: var(--brand-accent-blue);
             text-transform: uppercase;
+        }
+
+        /* Restored full session card */
+        .card p {
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        .card p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Agenda table inside cards */
+        .agenda {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 0.6rem;
+            font-size: 0.9rem;
+        }
+
+        .agenda tr + tr {
+            border-top: 1px solid var(--bg-light);
+        }
+
+        .agenda td {
+            padding: 0.3rem 0.5rem;
+            vertical-align: top;
+        }
+
+        .agenda td:first-child {
+            white-space: nowrap;
+            font-weight: 600;
+            color: var(--brand-dark-blue);
+            width: 110px;
+        }
+
+        /* Coming up list */
+        .upcoming-list {
+            list-style: none;
+            margin-top: 0.8rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.7rem;
+        }
+
+        .upcoming-list li {
+            background: var(--white);
+            border-left: 4px solid var(--brand-light-blue);
+            border-radius: 0 6px 6px 0;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+            padding: 0.65rem 1rem;
+            display: grid;
+            grid-template-columns: auto 1fr;
+            grid-template-rows: auto auto;
+            column-gap: 0.9rem;
+            row-gap: 0.1rem;
+            align-items: center;
+        }
+
+        .upcoming-list li::before {
+            display: none;
+        }
+
+        .upcoming-date {
+            grid-column: 1;
+            grid-row: 1 / 3;
+            background: var(--brand-dark-blue);
+            color: var(--white);
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.4px;
+            padding: 0.3rem 0.55rem;
+            border-radius: 4px;
+            white-space: nowrap;
+            text-align: center;
+            line-height: 1.3;
+            align-self: center;
+        }
+
+        .upcoming-speaker {
+            grid-column: 2;
+            grid-row: 1;
+            font-weight: 700;
+            font-size: 0.95rem;
+            color: var(--brand-dark-blue);
+        }
+
+        .upcoming-title {
+            grid-column: 2;
+            grid-row: 2;
+            font-size: 0.85rem;
+            color: #666;
+            font-style: italic;
         }
 
         .badge {
             background: var(--brand-dark-blue);
             color: var(--white);
-            padding: 0.6rem;
+            padding: 0.4rem 0.7rem;
             border-radius: 4px;
             font-weight: bold;
+            font-size: 0.85rem;
             display: inline-block;
-            margin-bottom: 0.6rem;
+            margin-bottom: 0.4rem;
+        }
+
+        /* CTA / Join strip */
+        .cta-strip {
+            background: var(--brand-dark-blue);
+            color: var(--white);
+            padding: 2.5rem 10%;
+        }
+
+        .cta-strip-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .cta-strip h2 {
+            color: var(--white);
+            border-bottom: 2px solid var(--brand-accent-blue);
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+            padding-bottom: 0.4rem;
+        }
+
+        .cta-strip p {
+            color: var(--brand-light-blue);
+            margin-bottom: 0.4rem;
+            font-size: 0.95rem;
+        }
+
+        .cta-strip p:last-child {
+            margin-bottom: 0;
+        }
+
+        .cta-strip a {
+            color: var(--white);
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .cta-strip a:hover {
+            text-decoration: underline;
+        }
+
+        .cta-strip .cta-gdpr {
+            font-size: 0.85rem;
+            color: var(--brand-light-blue);
+            opacity: 0.75;
+            font-style: italic;
+        }
+
+        /* Organizer card */
+        .organizer-card {
+            background: var(--white);
+            border-radius: 8px;
+            border-left: 6px solid var(--brand-dark-blue);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            padding: 1.8rem 2rem;
+            margin-top: 1.5rem;
+        }
+
+        .organizer-card h3 {
+            font-size: 1rem;
+            color: var(--brand-accent-blue);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 1.2rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--brand-light-blue);
+        }
+
+        .organizer-card p {
+            margin-bottom: 0.9rem;
+            font-size: 0.95rem;
+        }
+
+        .organizer-card p:last-child {
+            margin-bottom: 0;
+        }
+
+        .organizer-card a {
+            color: var(--brand-accent-blue);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .organizer-card--join {
+            border-left-color: var(--brand-accent-blue);
+            background: #f5f8fd;
+        }
+
+        .organizer-card a:hover {
+            text-decoration: underline;
+        }
+
+        .organizer-card .contact-note {
+            margin-top: 1.2rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--bg-light);
+            font-style: italic;
+            font-size: 0.9rem;
+            color: #555;
+        }
+
+        /* Archive / foldable */
+        .archive-toggle {
+            background: none;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            text-align: left;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-family: inherit;
+        }
+
+        .archive-toggle h2 {
+            margin-bottom: 0;
+            border-bottom: none;
+            padding-bottom: 0;
+            flex: 1;
+            border-bottom: 2px solid var(--brand-light-blue);
+            padding-bottom: 0.5rem;
+        }
+
+        .archive-toggle .chevron {
+            font-size: 1rem;
+            color: var(--brand-accent-blue);
+            transition: transform 0.25s ease;
+            padding-bottom: 0.3rem;
+        }
+
+        .archive-toggle[aria-expanded="true"] .chevron {
+            transform: rotate(180deg);
+        }
+
+        .archive-body {
+            overflow: hidden;
+            max-height: 0;
+            transition: max-height 0.35s ease;
+        }
+
+        .archive-body.open {
+            max-height: 600px;
+        }
+
+        .archive-empty {
+            margin-top: 1.2rem;
+            padding: 1.2rem 1.5rem;
+            background: var(--white);
+            border-radius: 8px;
+            border-left: 6px solid var(--brand-light-blue);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+            font-size: 0.95rem;
+            color: #555;
         }
 
         footer {
@@ -158,13 +417,62 @@
             color: var(--white);
         }
 
+        footer a {
+            color: var(--brand-light-blue);
+        }
+
+        /* Responsive: tablet / small laptop */
         @media (max-width: 900px) {
             .container {
                 grid-template-columns: 1fr;
+                padding: 0 6%;
             }
             .header-content {
                 flex-direction: column;
                 text-align: center;
+            }
+        }
+
+        /* Responsive: mobile */
+        @media (max-width: 540px) {
+            header {
+                padding: 1.5rem 5%;
+            }
+            .title-group h1 {
+                font-size: 1.6rem;
+            }
+            .subtitle {
+                font-size: 1rem;
+            }
+            .dfnl-logo {
+                height: 90px;
+            }
+            .ou-logo {
+                height: 50px;
+            }
+            .container {
+                padding: 0 5%;
+                margin: 2rem auto;
+            }
+            .card {
+                padding: 1.2rem;
+            }
+            footer {
+                padding: 2.5rem 5% 1.5rem;
+            }
+        }
+
+        /* Responsive: large / widescreen */
+        @media (min-width: 1600px) {
+            .container {
+                max-width: 1400px;
+                gap: 5rem;
+            }
+            .header-content {
+                max-width: 1400px;
+            }
+            .title-group h1 {
+                font-size: 2.8rem;
             }
         }
     </style>
@@ -178,74 +486,119 @@
                 <h1>Dutch Digital Forensic Doctorate Seminar</h1>
                 <div class="subtitle">Understanding&nbsp;Theory to&nbsp;Master&nbsp;Practice</div>
             </div>
+            <img src="OU-logo.svg" alt="Open Universiteit Logo" class="ou-logo">
         </div>
     </header>
 
     <main class="container">
         <div class="column">
             <section>
-                <div class="badge">Next Session: coming soon</div>
+                <h2>Next Session</h2>
+
+                <div class="card">
+                    <h3>19 May 2026 &mdash; 11:30&ndash;12:00 CET</h3>
+                    <p><strong>Speaker:</strong> Dr. Maroushka Vink</p>
+                    <p><strong>Title:</strong> Trojan horses and Bayesian networks</p>
+                    <table class="agenda" aria-label="Session agenda">
+                        <tr><td>11:30&ndash;11:50</td><td>Presentation</td></tr>
+                        <tr><td>11:50&ndash;12:00</td><td>Q&amp;A &amp; discussion</td></tr>
+                    </table>
+                    <p style="margin-top: 0.6rem; font-size: 0.85rem; color: #888;">Via Microsoft Teams &mdash; link will be shared by email.</p>
+                </div>
             </section>
+
             <section>
-                <h2>Mission & Vision</h2>
-                <p>The DFNL Doctorate Seminar serves as a vital nexus for the Dutch academic community, bringing together researchers to explore the latest advancements in digital forensics. 
-				By bridging the gap between theory and practice, we facilitate a unique exchange across multiple disciplines.</p>
-                <ul>
-                    <li>Legal Studies & Regulatory Context</li>
-                    <li>Applied & Theoretical Computer Science</li>
-                    <li>Artificial Intelligence & Machine Learning</li>
+                <h2>Coming Up</h2>
+                <ul class="upcoming-list">
+                    <li>
+                        <span class="upcoming-date">16th of June 2026</span>
+                        <span class="upcoming-speaker">Timo Meconi</span>
+                        <span class="upcoming-title">Between technical innovations and legal obligations</span>
+                    </li>
                 </ul>
             </section>
+
             <section>
-                <h2>Research Scope</h2>
-                <p>We explore a diverse range of topics essential to modern digital investigations:</p>
+                <h2>Mission &amp; Vision</h2>
+                <p>The DFNL Doctorate Seminar serves as a vital nexus for the Dutch academic community, bringing together researchers to explore the latest advancements in digital forensics.
+                By bridging the gap between theory and practice, we facilitate a unique exchange across multiple disciplines.</p>
                 <ul>
-                    <li><strong>Technical Methods:</strong> Data acquisition, mining, and AI implementation.</li>
-                    <li><strong>Legal & Ethics:</strong> Privacy, data admissibility, and authenticity.</li>
-                    <li><strong>Foundations:</strong> Theoretical models and conceptual frameworks.</li>
+                    <li>Legal Studies &amp; Regulatory Context</li>
+                    <li>Applied &amp; Theoretical Computer Science</li>
+                    <li>Artificial Intelligence &amp; Machine Learning</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>Seminar Format</h2>
+                <p>Our online sessions are hosted every four weeks via Microsoft Teams, provided by the <strong>Open Universiteit</strong>.
+                Each 30-minute block is optimized for impact:</p>
+                <ul>
+                    <li><strong>20 Minutes:</strong> Expert presentation on novel or published research.</li>
+                    <li><strong>10 Minutes:</strong> Collaborative Q&amp;A and networking.</li>
                 </ul>
             </section>
         </div>
 
         <div class="column">
             <section>
-                <h2>Seminar Format</h2>
-                <p>Our online sessions are hosted every four weeks via Microsoft Teams, provided by the <strong>Open Universiteit</strong>. 
-				Each 30-minute block is optimized for impact:</p>
+                <h2>Research Scope</h2>
+                <p>We explore a diverse range of topics essential to modern digital investigations:</p>
                 <ul>
-                    <li><strong>20 Minutes:</strong> Expert presentation on novel or published research.</li>
-                    <li><strong>10 Minutes:</strong> Collaborative Q&A and networking.</li>
+                    <li><strong>Technical Methods:</strong> Data acquisition, mining, and AI implementation.</li>
+                    <li><strong>Legal &amp; Ethics:</strong> Privacy, data admissibility, and authenticity.</li>
+                    <li><strong>Foundations:</strong> Theoretical models and conceptual frameworks.</li>
                 </ul>
             </section>
 
             <section>
                 <h2>Our Community</h2>
-                <p>This initiative is primarily tailored for PhD candidates and early-career academics at Dutch research institutions. 
-				We foster cross-institutional collaboration to strengthen the national forensic landscape.</p>
-                
+                <p>This initiative is primarily tailored for PhD candidates and early-career academics at Dutch research institutions.
+                We foster cross-institutional collaboration to strengthen the national forensic landscape.</p>
+
+
+                <div class="organizer-card organizer-card--join">
+                    <h3>Interested to Join?</h3>
+                    <p>Want to present your research, attend a session, or simply stay informed? Reach out at <a href="mailto:dfnl@ou.nl">dfnl@ou.nl</a>.</p>
+                </div>
+
                 <div class="organizer-card">
                     <h3>Organizing Committee</h3>
                     <p><strong>Harm van Beek</strong><br>Open Universiteit / Netherlands Forensic Institute</p>
                     <p><strong>Lorenz Hornung</strong><br>Open Universiteit</p>
-                    <p><strong>Timo Meconi</strong><br>Rijksuniversiteit Groningen</p>
-                    <p style="margin-top: 1rem; font-style: italic;">Contact: <strong>dfnl@ou.nl</strong></p>
+                    <p><strong>Timo Meconi</strong><br>Rijksuniversiteit Groningen / Netherlands Forensic Institute</p>
                 </div>
-				<img src="OU-logo.svg" alt="Open Universiteit Logo" class="ou-logo">
+
+            </section>
+
+            <!-- Archive: foldable -->
+            <section>
+                <button class="archive-toggle" aria-expanded="false" aria-controls="archive-body" onclick="toggleSection(this, 'archive-body')">
+                    <h2>Past Sessions</h2>
+                    <span class="chevron" aria-hidden="true">&#9660;</span>
+                </button>
+                <div class="archive-body" id="archive-body" role="region">
+                    <div class="archive-empty">
+                        <p><strong>The archive is currently empty.</strong></p>
+                        <p>We just launched &mdash; our very first session is still ahead of us. Think of this as the world's most organised empty folder. Forensically speaking, absence of data is also a finding.</p>
+                    </div>
+                </div>
             </section>
         </div>
     </main>
 
     <footer>
         <p>&copy; 2026 DFNL, provided by Open Universiteit</p>
+        <p>Processing of personal data is GDPR-compliant. Rights can be invoked by mailing <a href="mailto:dfnl@ou.nl?subject=%5BGDPR%5D%20Request">dfnl@ou.nl</a>.</p>
     </footer>
 
+    <script>
+        function toggleSection(btn, id) {
+            const expanded = btn.getAttribute('aria-expanded') === 'true';
+            btn.setAttribute('aria-expanded', String(!expanded));
+            document.getElementById(id).classList.toggle('open', !expanded);
+        }
+    </script>
+
 </body>
-
 </html>
-
-
-
-
-
-
-
