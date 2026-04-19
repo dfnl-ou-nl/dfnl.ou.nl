@@ -54,6 +54,24 @@
             overflow: visible;
         }
 
+        .ou-logo-group {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.35rem;
+            padding-left: 2.5rem;
+            border-left: 2px solid var(--brand-light-blue);
+            flex-shrink: 0;
+        }
+
+        .ou-label {
+            font-size: 0.68rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            color: var(--brand-accent-blue);
+        }
+
         .ou-logo {
             width: auto;
             height: 70px;
@@ -431,6 +449,12 @@
                 flex-direction: column;
                 text-align: center;
             }
+            .ou-logo-group {
+                padding-left: 0;
+                border-left: none;
+                border-top: 2px solid var(--brand-light-blue);
+                padding-top: 1.2rem;
+            }
         }
 
         /* Responsive: mobile */
@@ -449,6 +473,9 @@
             }
             .ou-logo {
                 height: 50px;
+            }
+            .ou-label {
+                font-size: 0.62rem;
             }
             .container {
                 padding: 0 5%;
@@ -486,7 +513,10 @@
                 <h1>Dutch Digital Forensic Doctorate Seminar</h1>
                 <div class="subtitle">Understanding&nbsp;Theory to&nbsp;Master&nbsp;Practice</div>
             </div>
-            <img src="OU-logo.svg" alt="Open Universiteit Logo" class="ou-logo">
+            <div class="ou-logo-group">
+                <span class="ou-label">Hosted by</span>
+                <img src="OU-logo.svg" alt="Open Universiteit Logo" class="ou-logo">
+            </div>
         </div>
     </header>
 
@@ -497,7 +527,7 @@
 
                 <div class="card">
                     <h3>19 May 2026 &mdash; 11:30&ndash;12:00 CET</h3>
-                    <p><strong>Speaker:</strong> Dr. Maroushka Vink</p>
+                    <p><strong>Speaker:</strong> Dr. Marouschka Vink</p>
                     <p><strong>Title:</strong> Trojan horses and Bayesian networks</p>
                     <table class="agenda" aria-label="Session agenda">
                         <tr><td>11:30&ndash;11:50</td><td>Presentation</td></tr>
