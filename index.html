@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="nl-en">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
@@ -34,7 +34,7 @@
         /* Header & Hero */
         header {
             background-color: var(--white);
-            padding: 2rem 10%;
+            padding: 2rem clamp(1rem, 8%, 10%);
             border-bottom: 4px solid var(--brand-dark-blue);
             box-shadow: 0 2px 15px rgba(0,0,0,0.05);
         }
@@ -78,34 +78,45 @@
             display: block;
         }
 
+        .title-group {
+            flex: 1;
+            min-width: 0;
+            overflow-wrap: break-word;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
         .title-group h1 {
-            font-size: 2.4rem;
+            font-size: clamp(1.45rem, 3.5vw, 2.4rem);
             color: var(--brand-dark-blue);
             font-weight: 700;
-            line-height: 1.2;
+            line-height: 1.3;
         }
 
         .subtitle {
-            font-size: 1.2rem;
+            font-size: clamp(0.8rem, 1.8vw, 1.2rem);
             font-weight: 600;
             color: var(--brand-accent-blue);
             text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-top: 0.2rem;
+            letter-spacing: clamp(0.3px, 0.3vw, 1px);
+            margin-top: 0.3rem;
+            line-height: 1.5;
         }
 
         /* Two-Column Layout */
         .container {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 3.5rem;
+            gap: clamp(1.5rem, 4vw, 3.5rem);
             max-width: 1200px;
             margin: 3.5rem auto;
-            padding: 0 10%;
+            padding: 0 clamp(1rem, 5%, 8%);
         }
 
         h2 {
-            font-size: 1.6rem;
+            font-size: clamp(1.2rem, 2.5vw, 1.6rem);
             margin-bottom: 1.5rem;
             color: var(--brand-dark-blue);
             border-bottom: 2px solid var(--brand-light-blue);
@@ -113,7 +124,7 @@
         }
 
         section {
-            margin-bottom: 3rem;
+            margin-bottom: clamp(1.5rem, 4vw, 3rem);
         }
 
         p {
@@ -267,7 +278,7 @@
         .cta-strip {
             background: var(--brand-dark-blue);
             color: var(--white);
-            padding: 2.5rem 10%;
+            padding: 2.5rem clamp(1rem, 8%, 10%);
         }
 
         .cta-strip-inner {
@@ -409,7 +420,7 @@
         }
 
         .archive-body.open {
-            max-height: 600px;
+            max-height: 2000px;
         }
 
         .archive-empty {
@@ -423,9 +434,54 @@
             color: #555;
         }
 
+        /* Partner bar */
+        .partner-bar {
+            background: var(--white);
+            border-top: 3px solid var(--brand-light-blue);
+            padding: 2rem clamp(1rem, 8%, 10%);
+        }
+
+        .partner-bar-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .partner-label {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            color: var(--brand-accent-blue);
+            white-space: nowrap;
+        }
+
+        .partner-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem 4rem;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .partner-grid a {
+            display: block;
+        }
+
+        .partner-grid img {
+            height: clamp(70px, 8vw, 120px);
+            width: auto;
+            max-width: 220px;
+            object-fit: contain;
+            display: block;
+        }
+
         footer {
             text-align: center;
-            padding: 4rem 10% 2.5rem;
+            padding: 4rem clamp(1rem, 8%, 10%) 2.5rem;
             background: var(--brand-dark-blue);
             color: var(--brand-light-blue);
             font-size: 0.9rem;
@@ -439,16 +495,28 @@
             color: var(--brand-light-blue);
         }
 
+        /* Responsive: medium – two columns still, but tighter */
+        @media (max-width: 1050px) {
+            header {
+                padding: 1.8rem 5%;
+            }
+            .cta-strip {
+                padding: 2rem 5%;
+            }
+        }
+
         /* Responsive: tablet / small laptop */
-        @media (max-width: 900px) {
+        @media (max-width: 860px) {
             .container {
                 grid-template-columns: 1fr;
                 padding: 0 6%;
             }
             .header-content {
                 flex-direction: column;
+                align-items: center;
                 text-align: center;
             }
+
             .ou-logo-group {
                 padding-left: 0;
                 border-left: none;
@@ -462,27 +530,15 @@
             header {
                 padding: 1.5rem 5%;
             }
-            .title-group h1 {
-                font-size: 1.6rem;
-            }
-            .subtitle {
-                font-size: 1rem;
-            }
             .dfnl-logo {
                 height: 90px;
             }
             .ou-logo {
                 height: 50px;
             }
-            .ou-label {
-                font-size: 0.62rem;
-            }
             .container {
                 padding: 0 5%;
                 margin: 2rem auto;
-            }
-            .card {
-                padding: 1.2rem;
             }
             footer {
                 padding: 2.5rem 5% 1.5rem;
@@ -511,7 +567,7 @@
             <img src="DFNL-bottom-logo.svg" alt="DFNL Logo" class="dfnl-logo">
             <div class="title-group">
                 <h1>Dutch Digital Forensic Doctorate Seminar</h1>
-                <div class="subtitle">Understanding&nbsp;Theory to&nbsp;Master&nbsp;Practice</div>
+                <div class="subtitle">Understanding Theory to Master Practice</div>
             </div>
             <div class="ou-logo-group">
                 <span class="ou-label">Hosted by</span>
@@ -523,11 +579,12 @@
     <main class="container">
         <div class="column">
             <section>
-                <h2>Next Session</h2>
+                <h2>Next Session (and Our First!)</h2>
 
                 <div class="card">
                     <h3>19 May 2026 &mdash; 11:30&ndash;12:00 CET</h3>
-                    <p><strong>Speaker:</strong> Dr. Marouschka Vink</p>
+                    <p><strong>Speaker:</strong>  <a href="https://www.linkedin.com/in/marouschka-vink-08bbb380/overlay/about-this-profile/">Dr. Marouschka Vink</a></p>
+                    <p><strong>Affiliation:</strong> Netherlands Forensic Institute</p>
                     <p><strong>Title:</strong> Trojan horses and Bayesian networks</p>
                     <table class="agenda" aria-label="Session agenda">
                         <tr><td>11:30&ndash;11:50</td><td>Presentation</td></tr>
@@ -550,13 +607,9 @@
 
             <section>
                 <h2>Mission &amp; Vision</h2>
-                <p>The DFNL Doctorate Seminar serves as a vital nexus for the Dutch academic community, bringing together researchers to explore the latest advancements in digital forensics.
-                By bridging the gap between theory and practice, we facilitate a unique exchange across multiple disciplines.</p>
-                <ul>
-                    <li>Legal Studies &amp; Regulatory Context</li>
-                    <li>Applied &amp; Theoretical Computer Science</li>
-                    <li>Artificial Intelligence &amp; Machine Learning</li>
-                </ul>
+                <p>The DFNL Doctorate Seminar is a recurring online seminar for researchers to present and discuss recent advances in digital forensics. 
+                The seminar is aimed at early-stage researchers and PhD candidates affiliated with Dutch universities and organizations, but it is open to everyone interested in digital forensics.</p>
+                <p>The seminar covers all academic aspects related to digital investigations. These include, but are not limited to, technical methods (data acquisition, data interpretation, AI), legal and ethical issues (privacy, admissibility, authenticity), and foundational theory of digital forensics.  </p>
             </section>
 
             <section>
@@ -588,8 +641,9 @@
 
 
                 <div class="organizer-card organizer-card--join">
-                    <h3>Interested to Join?</h3>
-                    <p>Want to present your research, attend a session, or simply stay informed? Reach out at <a href="mailto:dfnl@ou.nl">dfnl@ou.nl</a>.</p>
+                    <h3>Registration</h3>
+                    <p>We distribute the login information for each session via a mailing list. To register to the mainlining list, send an email to dfnl(at)ou.nl with the subject “Registration DFNL”. You will receive a confirmation when you have been successfully added to the mailing list.</p>
+                    <p>If you want to unsubscribe from the mailing list, send email to dfnl(at)ou.nl with the subject “Unregistration DFNL”. We will then delete your information and and confirm once your details have been removed. </p>
                 </div>
 
                 <div class="organizer-card">
@@ -617,9 +671,23 @@
         </div>
     </main>
 
+    <section class="partner-bar">
+        <div class="partner-bar-inner">
+            <span class="partner-label">Partner Institutions</span>
+            <div class="partner-grid">
+                <a href="https://www.ou.nl" target="_blank" rel="noopener" title="Open Universiteit">
+                    <img src="OU-logo.svg" alt="Open Universiteit">
+                </a>
+                <a href="https://www.forensischinstituut.nl" target="_blank" rel="noopener" title="Netherlands Forensic Institute">
+                    <img src="nfi_logo_pres.png" alt="Netherlands Forensic Institute">
+                </a>
+            </div>
+        </div>
+    </section>
+
     <footer>
         <p>&copy; 2026 DFNL, provided by Open Universiteit</p>
-        <p>Processing of personal data is GDPR-compliant. Rights can be invoked by mailing <a href="mailto:dfnl@ou.nl?subject=%5BGDPR%5D%20Request">dfnl@ou.nl</a>.</p>
+        <p>Processing of personal data is GDPR-compliant. Rights can be invoked by mailing dfnl(at)ou.nl.</p>
     </footer>
 
     <script>
